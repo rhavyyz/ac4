@@ -1,0 +1,10 @@
+Inicialmente gostaria de explicar a logica aplicada na arvore binaria que se encontra em "tree.cpp"
+
+Para tornar a leitura e correcao da questao mais facil utilizamos o design pattern Strategy
+na construcao da operacao de delecao. Tornando possivel mudar o algoritmo de delecao usado 
+durante tempo de execucao. os algoritmos de delecao estao contidos nas classes em 
+"delete_type.cpp"
+
+Durante a implementacao dessa classe e outras durante a atividade criamos um metodo publico
+que dispara um outro metodo privado para que a recursoes fossem usadas de forma adequada e/ou 
+nao se fosse possivel abusar do metodos para realizar operacoes ilogicas

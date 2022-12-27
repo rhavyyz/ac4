@@ -11,7 +11,7 @@ main deste mesmo arquivo, iniciando na linha 174
 
 // Durante a implementacao dessa classe e outras durante a atividade
 // criamos um metodo publico que dispara um outro metodo privado
-// para que a recursao fosse usada de forma adequada e/ou nao se 
+// para que a recursoes fossem usadas de forma adequada e/ou nao se 
 // fosse possivel abusar do metodos para realizar operacoes ilogicas
 class DirectionalGraph
 {
