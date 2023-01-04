@@ -27,6 +27,8 @@ namespace binaryTree
                 return higher(node->getRight());
             }
         public:
+
+            // Metodo de delecao em questao
             bool deleteValue(int value, Node* & node)
             {
                 if(node == NULL) return false;
