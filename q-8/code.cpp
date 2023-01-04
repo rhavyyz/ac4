@@ -1,6 +1,6 @@
-#include<vector>
+#include <vector>
 
-#include"./q-4/tree.cpp"
+#include "../q-4/tree.cpp"
 
 using std::vector;
 
@@ -29,6 +29,8 @@ namespace binaryTree
             }  
 
         public:
+
+            // Retorna um vetor dinamico com os valores dos elementos ordenados de forma ascendente
             vector<int> AscendentOrder()
             {
                 vector<int>* vec = privAscendentOrder(root);

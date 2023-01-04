@@ -7,7 +7,6 @@ using std::string;
 
 const float log_10 = log(10);
 
-// Ideia 
 class SingleVariableFunctionTree
 {
     private:

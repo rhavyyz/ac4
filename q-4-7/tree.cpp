@@ -1,4 +1,4 @@
-#include "delete_type.cpp"
+#include "delete_types.cpp"
 
 using std::cout;
 
@@ -33,12 +33,12 @@ namespace binaryTree
                 return false;
             }
 
-            void privShow(Node* node)
+            void privShowInOrder(Node* node)
             {
                 if(node == NULL) return;
-                privShow(node->getLeft());
+                privShowInOrder(node->getLeft());
                 cout << node->getValue() << '\n';
-                privShow(node->getRight());
+                privShowInOrder(node->getRight());
             }
 
             void erase(Node* node)
@@ -66,17 +66,24 @@ namespace binaryTree
 
             bool insert(int value) { return privInsert(value, root); }
 
-            void show() { cout << '\n'; return privShow(root); }
+            void showInOrder() { cout << '\n'; return privShowInOrder(root); }
 
             Node* & find(int value) { return privFind(value, root); }
 
             bool deleteValue(int value) { del->deleteValue(value, root); }
 
-            ~BinaryTree() { erase(root); }
+            ~BinaryTree() { erase(root); free(del); }
 
             void useSubstitutionDelete() { del = new SubstitutionDelete(); }
 
             void useReinsertionDelete() { del = new ReinsertionDelete(); }
 
     };
+}
+
+int main()
+{
+
+
+
 }
