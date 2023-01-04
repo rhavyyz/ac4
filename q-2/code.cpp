@@ -1,10 +1,11 @@
+#include<iostream>
 #include <vector>
 
 using std::vector;
 
 /*
 
-Implementacao da classe DirectionalGraph para o caso apresentado na questao foi feita na funcao 
+Implementacao da classe Graph para o caso apresentado na questao foi feita na funcao 
 main deste mesmo arquivo, iniciando na linha 174
 
 */
@@ -13,12 +14,12 @@ main deste mesmo arquivo, iniciando na linha 174
 // criamos um metodo publico que dispara um outro metodo privado
 // para que a recursoes fossem usadas de forma adequada e/ou nao se 
 // fosse possivel abusar do metodos para realizar operacoes ilogicas
-class DirectionalGraph
+class Graph
 {
     private:
         // A classe vector natural do C++ ja e inicializada assim que declarada
         // portanto nao e necessario declarar um construtor para a classe 
-        // DirectionalGraph
+        // Graph
         vector<vector<int>> graph;
 
         // Vetor dinamico auxiliar que guarda todos os nos ja visitados anteriormente
@@ -89,12 +90,34 @@ class DirectionalGraph
             {
                 for(int c=i+1; c < graph.size(); c++)
                 {
-                    if(!hasPath(i, c)) return false;
+                    bool path1 = hasPath(i, c);
+                    bool path2 = hasPath(c, i);
+                    if(!path1 || !path2) return false;
                 }
             }
 
             return true;
+        }
 
+        bool isStronglyConnected()
+        {
+            for(int i=0; i < graph.size(); i++)
+            {
+                bool ok = true;
+                for(int c=0; c < graph.size(); c++)
+                {
+                    bool path1 = hasPath(i, c);
+                    bool path2 = hasPath(c, i);
+                    if(!path1 || !path2) ;
+                    {
+                        ok = false;
+                        break;
+                    }
+                }
+                if(ok) return true;
+            }
+
+            return false;
         }
 
         bool hasPath(int begin,int end)
@@ -170,10 +193,10 @@ class DirectionalGraph
         }
 };
 
-// Usando a classe DirectionalGraph para representar o grafo demonstado na questao
+// Usando a classe Graph para representar o grafo demonstado na questao
 int main()
 {
-    DirectionalGraph* graph = new DirectionalGraph();
+    Graph* graph = new Graph();
 
     graph->newNodes(11);
     // Os vertices serao representados pelos numeros 
@@ -228,6 +251,10 @@ int main()
     graph->newEdge(10, 9);
     graph->newEdge(10, 8);
 
+
+    std::cout << "Is connected? :"<<(graph->isConnected() ? "true" : "false");
+    std::cout << "\nIs strongly connected? :"<<(graph->isStronglyConnected() ? "true\n" : "false\n");
+    
 
 
     return 0;

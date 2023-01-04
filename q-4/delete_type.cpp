@@ -1,5 +1,4 @@
 #include "node.cpp"
-#include <iostream>
 
 namespace binaryTree
 {
@@ -14,19 +13,19 @@ namespace binaryTree
     class ReinsertionDelete : public DeleteType
     {
         protected:
-            Node* &findToRemove(int value, Node* node)
+            Node* findToRemove(int value, Node* node)
             {
                 if(node == NULL) return node;
 
                 if(node->getValue() > value)
                 {
-                    Node* &res = findToRemove(value, node->getLeft());
+                    Node* res = findToRemove(value, node->getLeft());
                     if(res == node->getLeft()) node->setLeft(NULL);
                     return res;
                 }
                 if(node->getValue() < value)
                 {
-                    Node* &res = findToRemove(value, node->getRight());
+                    Node* res = findToRemove(value, node->getRight());
                     if(res == node->getRight()) node->setRight(NULL);
                     return res;
                 }                
@@ -49,7 +48,7 @@ namespace binaryTree
         public:
             bool deleteValue(int value, Node* & root)
             {
-                Node* &node = findToRemove(value, root);
+                Node* node = findToRemove(value, root);
                 if (node == NULL) return false;
 
                 reinsertNode(node->getLeft(), root);

@@ -1,0 +1,17 @@
+A ideia da classe e receber uma string que representa a funcao e com um de seus metodos ir 
+fragmentando recursivamente a string em substrings menores que representao partes de uma operacao 
+
+Ex:
+     (x+1)*(3+12)         <---- se salva a operacao de mulplicacao nesse no  
+    /           \
+(x+1)    ||      (3+12)
+x+1      ||       3+12    <---- Sao eliminados os parenteses e e salva a operacao de adicao nos dois nos
+/     \        /       \
+x  |  1   ||  3  |     12 <---- Esses nos tem suas strings convertidas para numeros e no caso do
+                                x se entende que deve ser substituido pelo valor passado durante 
+                                a execucao
+
+
+
+
+OBS: A saida do codigo esta salva no arquivo output.txt

@@ -1,7 +1,5 @@
 #include "delete_type.cpp"
 
-#include<iostream>
-
 using std::cout;
 
 namespace binaryTree
@@ -10,11 +8,12 @@ namespace binaryTree
     // Bastando declarar o tipo de delecao que deseja usar em seguida com 
     // os metodos useSubstitutionDelete() e useReinsertionDelete()
     // OBS: originalmente usa delecao por substituicao
-    class Tree
+    class BinaryTree
     {
-        private:
+        protected:
             Node* root;
 
+        private:
             // Responsavel pela operacao de delecao, para tornar a classe 
             // generalizavel para binary trees com susbtituicao e sem 
             // substituicao na delecao
@@ -63,7 +62,7 @@ namespace binaryTree
 
         public:
 
-            Tree() { root = NULL; useSubstitutionDelete(); }
+            BinaryTree() { root = NULL; useSubstitutionDelete(); }
 
             bool insert(int value) { return privInsert(value, root); }
 
@@ -73,20 +72,11 @@ namespace binaryTree
 
             bool deleteValue(int value) { del->deleteValue(value, root); }
 
-            ~Tree() { erase(root); }
+            ~BinaryTree() { erase(root); }
 
             void useSubstitutionDelete() { del = new SubstitutionDelete(); }
 
             void useReinsertionDelete() { del = new ReinsertionDelete(); }
 
     };
-}
-
-
-
-using namespace binaryTree;
-
-int main()
-{
-    return 0;
 }

@@ -1,4 +1,4 @@
-#define NULL 0
+#include <iostream>
 
 namespace binaryTree
 {
